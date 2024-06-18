@@ -1,5 +1,5 @@
 // Initialize Variables below
-let date = "Monday 2019-03-18";
+let date = "Monday 2019-03-18 AM";
 let time = "10:05:34 AM";
 let astronautCount = 7;
 let astronautStatus = "ready";
@@ -17,7 +17,7 @@ let weatherStatus = "clear";
 let preparedForLiftOff = true;
 
 // add logic below to verify total number of astronauts for shuttle launch does not exceed 7
-if (astronautCount > 7) {
+if (astronautCount > 7 || astronautCount < 0) {
     preparedForLiftOff = false;
 }
 
@@ -27,7 +27,7 @@ if (astronautStatus !== "ready") {
 }
 
 // add logic below to verify the total mass does not exceed the maximum limit of 850000
-if (totalMassKg > maximumMassLimit) {
+if (totalMassKg > maximumMassLimit || totalMassKg < 0) {
     preparedForLiftOff = false;
 }
 
@@ -42,23 +42,23 @@ if (fuelLevel !== "100%") {
 }
 
 // add logic below to verify the weather status is clear
-if (weatherStatus != "clear") {
+if (weatherStatus !== "clear") {
     preparedForLiftOff = false;
 }
 
 // Verify shuttle launch can proceed based on above conditions
-if (preparedForLiftOff === true) {
+if (preparedForLiftOff) {
     console.log("All systems are a go! Initiating space shuttle launch sequence.");
     console.log("---------------------------------------------------------------");
-    console.log("Date: " + date);
-    console.log("Time: " + time);
-    console.log("Astronaut Count: " + astronautCount);
-    console.log("Crew Mass: " + crewMassKg + " kg");
-    console.log("Fuel Mass: " + fuelMassKg + " kg");
-    console.log("Shuttle Mass: " + shuttleMassKg + " kg");
-    console.log("Total Mass: " + totalMassKg + " kg");
-    console.log("Fuel Temperature: " + fuelTempCelsius + " C");
-    console.log("Weather Status: " + weatherStatus);
+    console.log("Date:", date);
+    console.log("Time:", time);
+    console.log("Astronaut Count:", astronautCount);
+    console.log("Crew Mass:", crewMassKg, "kg");
+    console.log("Fuel Mass:", fuelMassKg, "kg");
+    console.log("Shuttle Mass:", shuttleMassKg, "kg");
+    console.log("Total Mass:", totalMassKg, "kg");
+    console.log("Fuel Temperature:", fuelTempCelsius, "C");
+    console.log("Weather Status:", weatherStatus);
     console.log("---------------------------------------------------------------");
     console.log("Have a safe trip astronauts!");
 } else {
