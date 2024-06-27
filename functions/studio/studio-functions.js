@@ -30,6 +30,32 @@ let arrayTest1 = ['apple', 'potato', 'Capitalized Words'];
 let arrayTest2 = [123, 8897, 42, 1168, 8675309];
 let arrayTest3 = ['hello', 'world', 123, 'orange'];
 
+function reverseCharacters(input) {
+    let reversed = "";
+    if (typeof input === "string") {
+        reversed = input.split("").reverse().join("");
+    } else if (typeof input === "number") {
+        reversed = input.toString().split("").reverse().join("");
+    }
+
+    return reversed;
+}
+
+// console.log(reverseCharacters('radar'));
+
+function reverseArray(array) {
+    let reversed = [];
+    for (let i = 0; i < array.length; i++) {
+        reversed.unshift(reverseCharacters(array[i]));
+    }
+    
+    return reversed;
+}
+
+console.log(reverseArray(arrayTest1));
+console.log(reverseArray(arrayTest2));
+console.log(reverseArray(arrayTest3));
+
 // Bonus Missions
 
 // 1. Have a clear, descriptive name like funPhrase.
@@ -42,6 +68,22 @@ let arrayTest3 = ['hello', 'world', 123, 'orange'];
 // 1. Outside of the function, define the variable str and initialize it with a string (e.g. 'Functions rock!').
 // 2. Call your function and print the returned phrase.
 
+function funPhrase(phrase) {
+    let extract = "";
+    if (typeof phrase !== "string") {
+        return false;
+    } else if (phrase.length <= 3) {
+        extract = phrase.charAt(phrase.length - 1);
+    } else if (phrase.length > 3) {
+        extract = phrase.substr(0, 3);
+    }
+
+    return `We put the ${extract} in ${phrase}.`
+}
+
+let str = "Functions rock!";
+console.log(funPhrase(str));
+
 // Area of rectangle equal to length x width
 
 // 1. Define a function with the required parameters to calculate the area of a rectangle.
@@ -49,3 +91,17 @@ let arrayTest3 = ['hello', 'world', 123, 'orange'];
 // 3. Call your area function by passing in two arguments - the length and width.
 // 4. If only one argument is passed to the function, then the shape is a square. Modify your code to deal with this case.
 // 5. Use a template literal to print, “The area is ____ cm^2.”
+
+function calculateRectangleArea(length, width) {
+    let area = 0;
+    if (width === undefined) {
+        area = length * length;
+    } else {
+        area = length * width;
+    }
+
+    return area;
+}
+
+let rectangleCalc = calculateRectangleArea(20);
+console.log(`The area is ${rectangleCalc} cm^2.`);
