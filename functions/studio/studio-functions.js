@@ -36,6 +36,8 @@ function reverseCharacters(input) {
         reversed = input.split("").reverse().join("");
     } else if (typeof input === "number") {
         reversed = input.toString().split("").reverse().join("");
+    } else {
+        console.log("Please enter a string or number");
     }
 
     return reversed;
